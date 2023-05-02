@@ -1,0 +1,190 @@
+@media (prefers-color-scheme: light) {
+  :root {
+    --navbarWidth: 600px; 
+    --lwt-accent-color: rgb(251, 240, 241) !important;
+    --toolbar-field-focus-background-color: rgb(251, 240, 241) !important;
+    --toolbar-field-color: rgb(200, 64, 87) !important;
+    --toolbar-field-focus-color: black !important;
+    --lwt-selected-tab-background-color: red !important;
+    --tab-selected-bgcolor: rgb(241, 151, 174) !important;
+    --chrome-content-separator-color: rgb(213, 129, 146) !important;
+  }
+  
+  #tabbrowser-tabs {
+    background-color: rgb(252, 246, 246) !important;
+  }
+  
+  #nav-bar {
+    background-color: rgb(251, 240, 241) !important;
+  }
+  
+  #PlacesToolbarItems {
+    background-color: rgb(252, 255, 252) !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --navbarWidth: 600px;
+    --lwt-accent-color: rgb(34, 34, 34) !important;
+    --toolbar-field-focus-background-color: rgb(34, 34, 34) !important;
+    --toolbar-field-color: rgb(156, 200, 142) !important;
+    --toolbar-field-focus-color: rgb(255, 255, 255) !important;
+    --lwt-selected-tab-background-color: rgb(147, 59, 89) !important;
+    --chrome-content-separator-color: rgb(28, 27, 35) !important;
+  }
+  
+   #PlacesToolbarItems {
+    background-color: #222222;
+  }
+}
+
+
+#star-button[starred] {
+    fill: #EAB779 !important;
+}
+
+#fxa-avatar-image {
+  width: 25px !important;
+  height: 25px !important;
+  border-radius: 20% !important;
+}
+
+#tabs-newtab-button {
+  margin-right : 30px !important;
+}
+
+
+/* span upper menubar, tabbars */
+
+@media (min-width: 1000px) {
+  #navigator-toolbox {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  /*  Url bar  */
+  #nav-bar {
+    order: 1;
+    width: var(--navbarWidth);
+  }
+
+  /* Tab bar */
+  #titlebar {
+    order: 2;
+    width: calc(100vw - var(--navbarWidth) - 1px);
+  }
+
+  /* Bookmarks bar */
+  #PersonalToolbar {
+    order: 3;
+    width: 100%;
+  }
+
+  /* Fix urlbar sometimes being misaligned */
+  :root[uidensity="compact"] #urlbar {
+    --urlbar-toolbar-height: 39.6px !important;
+  }
+
+  :root[uidensity="touch"] #urlbar {
+    --urlbar-toolbar-height: 49px !important;
+  }
+}
+
+/*====== Simplifying interface ======*/
+
+/* Autohide back button when disabled */
+#back-button,
+#forward-button {
+  transform: scale(1, 1) !important;
+  transition: margin-left 700ms var(--animation-easing-function),
+    opacity 250ms var(--animation-easing-function),
+    transform 350ms var(--animation-easing-function) !important;
+}
+
+#back-button[disabled="true"],
+#forward-button[disabled="true"] {
+  margin-left: -34px !important;
+  opacity: 0 !important;
+  transform: scale(0.8, 0.8) !important;
+  pointer-events: none !important;
+}
+
+
+
+/* ===== Removing UI elements ====== */
+/* Remove UI elements */
+/*#identity-box, /* Site information */
+/* #tracking-protection-icon-container, /* Shield icon */
+#page-action-buttons > :not(#urlbar-zoom-button, #star-button-box), /* All url bar icons except for zoom level and bookmarks */
+#urlbar-go-button, /* Search URL magnifying glass */
+#alltabs-button, /* Menu to display all tabs at the end of tabs bar */
+.titlebar-spacer,
+#firefox-view-button,
+#customizableui-special-spring1,
+#customizableui-special-spring2,
+#save-to-pocket-button,
+.titlebar-buttonbox-container /* Minimize, maximize, and close buttons */ {
+  display: none !important;
+}
+
+#nav-bar {
+  box-shadow: none !important;
+}
+
+/* Remove "padding" left and right from tabs */
+.titlebar-spacer {
+  display: none !important;
+}
+
+/* Fix URL bar overlapping elements */
+#urlbar-container {
+  min-width: initial !important;
+}
+
+/* Remove gap after pinned tabs */
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])
+  > #tabbrowser-arrowscrollbox
+  > .tabbrowser-tab[first-visible-unpinned-tab] {
+  margin-inline-start: 0 !important;
+}
+
+/* multi-row bookmarks */
+#PersonalToolbar{
+  --multirow-bmb-n-rows: 3; /* Control how many rows are shown before scrolling */
+  --multirow-bmb-row-margin: 2px; /* Control how much spacing is between rows */
+  max-height: none !important;
+}
+
+#PlacesToolbar > hbox:not(#PlacesToolbarDropIndicatorHolder){ 
+  display: block;
+  width: 100vw;
+}
+
+#PlacesToolbarItems{
+  display: flex;
+  flex-wrap: wrap;
+  /* --uc-bm-padding is defined in autohide_bookmarks_toolbar.css */
+  max-height: calc(var(--multirow-bmb-n-rows) * (4px + 1em + (2 * (var(--multirow-bmb-row-margin) + var(--uc-bm-padding,var(--bookmark-block-padding)))))) !important;
+  overflow-y:auto;
+  scrollbar-color: var(--lwt-accent-color) var(--toolbar-bgcolor);
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+}
+
+/* Hide the all-bookmarks button */
+#PlacesChevron{ display: none }
+
+/* Add some spacing between rows */
+#PlacesToolbarItems > .bookmark-item{
+  margin: var(--multirow-bmb-row-margin) 3px !important;
+  visibility: visible !important; /* Just in case they would be hidden for some reason */
+}
+
+.panel-subview-body,
+#permList,
+scrollbar{
+ color: inherit;
+ scrollbar-color: currentColor transparent;
+ scrollbar-width: thin 
+}

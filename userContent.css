@@ -1,0 +1,80 @@
+/*common settings*/
+@-moz-document url-prefix(about:newtab), url-prefix(about:home) {
+  .wordmark {
+    background-position: center !important;
+    position: center !important;
+  }
+  
+  .logo-and-wordmark {
+    flex-direction: column !important;
+    margin-bottom: 0px !important;
+  }
+}
+
+
+/*dark mode setting*/
+@media (prefers-color-scheme: dark) {
+  @-moz-document url-prefix(about:blank), url-prefix(about:newtab), url-prefix(about:home), url-prefix(about:privatebrowsing), url-prefix(about:preferences), url-prefix(about:) {
+    body {
+      background-color: #222222 !important;
+      background: 
+        url("/Users/teddypicker_/Library/Application Support/Firefox/Profiles/rtlfm61y.default-release-1682776769163/chrome/dark_public/kikuri_newtab.png"),
+        url("/Users/teddypicker_/Library/Application Support/Firefox/Profiles/rtlfm61y.default-release-1682776769163/chrome/dark_public/hutaripop.png")
+        !important;
+      background-size: auto 50%, auto 15% !important;
+      background-repeat: no-repeat, no-repeat !important;
+      background-position: right bottom, left bottom !important;
+    }
+  }
+  
+  
+  
+  @-moz-document url-prefix(about:newtab), url-prefix(about:home) {
+    .logo-and-wordmark {
+      background: 
+        url("/Users/teddypicker_/Library/Application Support/Firefox/Profiles/rtlfm61y.default-release-1682776769163/chrome/dark_public/ryostraight.png") no-repeat, 
+        url("/Users/teddypicker_/Library/Application Support/Firefox/Profiles/rtlfm61y.default-release-1682776769163/chrome/dark_public/seikawatching.png") no-repeat,
+        url("/Users/teddypicker_/Library/Application Support/Firefox/Profiles/rtlfm61y.default-release-1682776769163/chrome/dark_public/bocchiblob.png") no-repeat ,
+        url("/Users/teddypicker_/Library/Application Support/Firefox/Profiles/rtlfm61y.default-release-1682776769163/chrome/dark_public/kitashine.png") no-repeat !important;
+      background-size: auto 70%, auto 100%, auto 30%, auto 70% !important;
+      background-position: right 25% bottom, left 10% bottom, left 30% bottom, right 10% bottom !important;
+    }
+    .logo {
+      background: url("/Users/teddypicker_/Library/Application Support/Firefox/Profiles/rtlfm61y.default-release-1682776769163/chrome/dark_public/kikuriface.png") center no-repeat !important;
+      background-size: auto 100% !important;
+      height: 100px !important;
+      width: 200px !important;
+    }
+  }
+}
+
+/* light mode settings*/
+@media (prefers-color-scheme: light) {
+  @-moz-document url-prefix(about:) {
+    body {
+      background-color: rgb(252, 255, 252) !important;
+    }
+  }
+  
+  @-moz-document url-prefix(about:newtab), url-prefix(about:home) {
+    .logo {
+      background: url("/Users/teddypicker_/Library/Application Support/Firefox/Profiles/rtlfm61y.default-release-1682776769163/chrome/light_public/firefoxlogo.svg") center no-repeat !important;
+      background-size: auto 100% !important;
+      height: 100px !important;
+      width: 200px !important;
+    }
+    
+    .wordmark {
+      background: url("/Users/teddypicker_/Library/Application Support/Firefox/Profiles/rtlfm61y.default-release-1682776769163/chrome/light_public/firefoxcali.svg") center no-repeat !important;
+      background-size: auto 60% !important;
+      height: 60px !important;
+      width: 300px !important;
+    }
+    
+    body {
+      /*background: 
+        url("/Users/teddypicker_/Library/Application Support/Firefox/Profiles/rtlfm61y.default-release-1682776769163/chrome/light_public/akirastanding.png") no-repeat !important;
+      background-size: cover !important;*/
+    }
+  }
+}
