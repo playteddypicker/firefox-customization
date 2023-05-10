@@ -65,29 +65,24 @@
 
   /*  Url bar  */
   #nav-bar {
-    order: 1;
+    order: 2;
     width: var(--navbarWidth);
+    margin-top: -40px;
+    margin-bottom: 0px;
   }
-
+  
   /* Tab bar */
   #titlebar {
-    order: 2;
+    order: 1;
     width: calc(100vw - var(--navbarWidth) - 1px);
+    margin-left: var(--navbarWidth);
+    margin-top: 0px;
   }
 
   /* Bookmarks bar */
   #PersonalToolbar {
-    order: 3;
+    order: 4;
     width: 100%;
-  }
-
-  /* Fix urlbar sometimes being misaligned */
-  :root[uidensity="compact"] #urlbar {
-    --urlbar-toolbar-height: 39.6px !important;
-  }
-
-  :root[uidensity="touch"] #urlbar {
-    --urlbar-toolbar-height: 49px !important;
   }
 }
 
@@ -109,8 +104,6 @@
   transform: scale(0.8, 0.8) !important;
   pointer-events: none !important;
 }
-
-
 
 /* ===== Removing UI elements ====== */
 /* Remove UI elements */
@@ -161,14 +154,14 @@
   width: 100vw;
 }
 
+
 #PlacesToolbarItems{
   display: flex;
   flex-wrap: wrap;
-  /* --uc-bm-padding is defined in autohide_bookmarks_toolbar.css */
   max-height: calc(var(--multirow-bmb-n-rows) * (4px + 1em + (2 * (var(--multirow-bmb-row-margin) + var(--uc-bm-padding,var(--bookmark-block-padding)))))) !important;
   overflow-y:auto;
   scrollbar-color: var(--lwt-accent-color) var(--toolbar-bgcolor);
-  scrollbar-gutter: stable;
+  scrollbar-gutter: auto;
   scrollbar-width: thin;
 }
 
